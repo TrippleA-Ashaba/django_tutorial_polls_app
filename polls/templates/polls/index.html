@@ -1,11 +1,15 @@
 {% extends "polls/base.html" %}{% block content %} {% if questions %}
-<ul>
+<ol class="list-group list-group-numbered text-center">
 	{% for question in questions %}
-	<li>
-		<a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+	<li class="list-group-item ">
+		<a href="{% url 'polls:detail' question.id %}">
+			<div class="fw-bold">
+
+				{{ question.question_text }}</a>
+			</div>
 	</li>
 	{% endfor %}
-</ul>
+</ol>
 {% else %}
 <p>No polls are available</p>
 {% endif %} {% endblock content %}
